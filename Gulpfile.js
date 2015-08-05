@@ -8,7 +8,7 @@ var sync = require('run-sequence');
 
 var options = {
   src: './app/app.js',
-  app:'./app/**/*',
+  app:'./app/**/*.js',
   dist: 'dist',
   tmp: '.tmp',
   errorHandler: function(title) {
