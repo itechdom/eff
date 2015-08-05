@@ -6,15 +6,15 @@ let effectiveFormComponent = function ($compile,$http) {
         template,
         controller,
         link: function (scope, elem, attrs) {
-
+            console.log(scope);
         },
         replace:true,
         restrict: 'E',
-        controllerAs: 'vm',
         scope: {
-            contact: "="
-        },
-        bindToController: true
+            contact: "=",
+            submit:"&onSubmit",
+            index:"="
+        }
     };
     return dir;
 };

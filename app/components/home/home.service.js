@@ -24,6 +24,12 @@ let homeService = function($http,$q){
         });
     };
 
+    this.updateContacts = function(contacts){
+        var fireBase = this.myFirebase;
+        return $q(function(resolve, reject) {
+            fireBase.set(contacts);
+        });
+    };
 
 
     this.getCountries = function(){
