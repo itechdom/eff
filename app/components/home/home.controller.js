@@ -9,6 +9,8 @@ class HomeController {
 			$scope.countries = countries.RestResponse.result;
 		});
 
+		homeService.saveContacts({"hello":"hi"});
+
 		$scope.saveContacts = function(contacts){
 			homeService.saveContacts($scope.contacts);
 		};

@@ -24,6 +24,7 @@
     "bootstrap": "^3.3.5",
     "browserify": "^10.2.4",
     "express": "^4.12.4",
+    "firebase": "^2.2.9",
     "flat": "^1.6.0",
     "jquery": "^2.1.4",
     "lodash": "^3.8.0",
