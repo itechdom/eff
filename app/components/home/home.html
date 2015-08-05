@@ -20,9 +20,9 @@
 		</div>
 	</nav>
 	<div class="container title">
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<div class="well well-sm">
-					<form ng-submit="saveContact()" class="form-horizontal" method="post">
+					<form ng-submit="addContacts()" class="form-horizontal" method="post">
 						<fieldset>
 							<legend class="text-center header">Contact us</legend>
 							<div class="form-group">
@@ -103,24 +103,102 @@
 								</div>
 							</div>
 						</fieldset>
-						{{currentContact}}
 					</form>
 				</div>
 			</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<legend class="text-center header">Contacts</legend>
+		<div class="col-md-6">
+			<legend class="text-center header">Users</legend>
 			<accordion close-others="oneAtATime">
-				<accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-					This content is straight in the template.
-				</accordion-group>
-				<accordion-group heading="{{group.title}}" ng-repeat="contact in contacts">
-					{{contact.fname}}
+				<accordion-group  ng-repeat="contact in contacts">
+					{{contact}}
+					<accordion-heading>
+						{{contact.fname}} {{contact.lname}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+						<!--<button type="submit" class="btn btn-primary btn-sm">Submit</button>-->
+					</accordion-heading>
+					<!-- Display the form elements that would update the contact -->
+					<form ng-submit="saveContacts()" class="form-horizontal" method="post">
+						<fieldset>
+							<div class="form-group">
+								<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+								<div class="col-md-8">
+									<input id="fname" name="name" type="text" placeholder="First Name" class="form-control" required min="3" ng-model="contact.fname">
+								</div>
+							</div>
+							<div class="form-group">
+								<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+								<div class="col-md-8">
+									<input id="lname" name="name" type="text" placeholder="Last Name" class="form-control" required min="3" ng-model="contact.lname">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+								<div class="col-md-8">
+									<input id="address" name="address" type="text" placeholder="Address" class="form-control"  ng-model="contact.address">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-3">{{contact.country}}</div>
+								<div class="col-md-8">
+									<select id="country" name="country" type="text" placeholder="Country" class="form-control" ng-model="contact.country">
+										<option value="{{country.alpha3_code}}" ng-repeat="country in countries">
+											{{country.name}}
+										</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-3">{{contact.state}}</div>
+								<div class="col-md-8">
+									<select ng-options="state.name for state in states" id="state" name="state" type="text" placeholder="State" class="form-control" ng-model="contact.state">
+										<option value="{{contact.state}}">
+										</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+								<div class="col-md-8">
+									<input id="city" name="city" type="text" placeholder="City" class="form-control" ng-model="contact.city">
+								</div>
+							</div>
+
+
+
+							<div class="form-group">
+								<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+								<div class="col-md-8">
+									<input id="zip" name="zip" type="text" placeholder="Zip" class="form-control"  ng-model="contact.zip">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+								<div class="col-md-8">
+									<input id="phone" name="phone" type="text" placeholder="Phone" class="form-control" required  ng-model="contact.phone">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+								<div class="col-md-8">
+									<input id="email" name="email" type="email" placeholder="Email" class="form-control" required ng-model="contact.email">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-12 text-center">
+									<button type="submit" class="btn btn-primary btn-lg">Save</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+
 				</accordion-group>
 			</accordion>
 		</div>
 	</div>
-
-
 </main>
