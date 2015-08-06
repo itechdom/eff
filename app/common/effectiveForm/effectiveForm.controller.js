@@ -10,7 +10,6 @@ class effectiveFormController {
 			$scope.countries = countries.RestResponse.result;
 			if($scope.contact.selectedCountry){
 				var index = $scope.contact.selectedCountry;
-				console.log($scope.countries);
 				var code = $scope.countries[index].alpha3_code;
 				homeService.getStates(code).success(function(result){
 					$scope.states = result.RestResponse.result;
@@ -21,7 +20,6 @@ class effectiveFormController {
 
 		$scope.getStates = function(){
 			var index = $scope.contact.selectedCountry;
-			console.log($scope.countries);
 			var code = $scope.countries[index].alpha3_code;
 			homeService.getStates(code).success(function(result){
 				$scope.states = result.RestResponse.result;
