@@ -6,8 +6,7 @@ var webpack = require('gulp-webpack');
 var config = {
 	devtool: 'sourcemap',
 	output: {
-		filename: 'bundle.js',
-		publicPath:'/dist/'
+		filename: 'bundle.js'
 	},
 	module: {
 		loaders: [
