@@ -5,6 +5,10 @@ class HomeController {
 		$scope.currentContact = {};
 		$scope.contacts = [];
 
+		homeService.getCountries().then(function(countries){
+			$scope.countries = countries.RestResponse.result;
+		});
+
 		homeService.getContacts().then(function(contacts){
 			if(contacts) {
 				$scope.contacts = contacts;

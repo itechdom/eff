@@ -23,23 +23,26 @@
 			<div class="col-md-6">
 
 				<div class="well well-sm">
+					<legend class="text-center header">Contact Form</legend>
 					<effective-form index="$index" on-submit="addContacts(contact)" contact="currentContact"></effective-form>
 				</div>
 
 			</div>
 		<div class="col-md-6">
+			<div class="well well-sm">
+
 			<legend class="text-center header">Users</legend>
-			<accordion close-others="oneAtATime">
-				<accordion-group  ng-repeat="contact in contacts">
-					<accordion-heading>
+			<accordion>
+				<accordion-group close-others="oneAtATime"  ng-repeat="contact in contacts" is-open="status.open">
+					<accordion-heading >
 						{{contact.fname}} {{contact.lname}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
 					</accordion-heading>
-
 
 					<effective-form index="$index" on-submit="updateContacts(contact)" contact="contact"></effective-form>
 
 				</accordion-group>
 			</accordion>
 		</div>
+			</div>
 	</div>
 </main>

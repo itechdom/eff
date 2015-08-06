@@ -1,4 +1,5 @@
 import template from './app.html';
+require("font-awesome-webpack");
 
 let appComponent = ()=>{
 	return {

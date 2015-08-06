@@ -5,12 +5,12 @@ class effectiveFormController {
 		$scope.countries = [];
 
 		//get the list of states and countries here ...
-		$scope.getCountries = function(){
-			homeService.getCountries().success(function(countries){
+			homeService.getCountries().then(function(countries){
 				$scope.countries = countries.RestResponse.result;
-			})
-		};
 
+				//select the write country
+
+			});
 		//when the country changes get the states
 		$scope.$watch('contact.country',function(newVal,oldVal){
 			homeService.getStates(newVal).success(function(result){

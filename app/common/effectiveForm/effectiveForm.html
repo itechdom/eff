@@ -1,6 +1,5 @@
 <form ng-submit="submit({'contact':contact,'index':index})" class="form-horizontal" method="post">
     <fieldset>
-        <legend class="text-center header">Contact us</legend>
         <div class="form-group">
             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
             <div class="col-md-8">
@@ -24,10 +23,8 @@
         <div class="form-group">
             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
             <div class="col-md-8">
-                <select id="country" name="country" type="text" placeholder="Country" class="form-control" ng-click="getCountries()" ng-model="contact.country">
-                    <option value="{{contact.country.alpha3_code}}">
-                        {{contact.country}}
-                    </option>
+                {{contact.country}}
+                <select id="country" name="country" type="text" placeholder="Country" class="form-control"  ng-model="contact.country">
                     <option value="{{country.alpha3_code}}" ng-repeat="country in countries">
                         {{country.name}}
                     </option>

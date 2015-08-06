@@ -1,6 +1,6 @@
 import Firebase from 'firebase'
 
-let homeService = function($http,$q){
+let homeService = function($http,$q,$rootScope){
 
     //initialize fireBase with document "myContacts"
     this.myFirebase = new Firebase("https://effective.firebaseio.com/myContacts");
@@ -33,7 +33,19 @@ let homeService = function($http,$q){
 
 
     this.getCountries = function(){
-        return $http.get('http://services.groupkt.com/country/get/all')
+        return $q(function(resolve, reject) {
+
+            if($rootScope.countries){
+                resolve($rootScope.countries);
+            }
+            else{
+                $http.get('http://services.groupkt.com/country/get/all').success(function(countries){
+                    $rootScope.countries = countries;
+                    resolve(countries)
+                })
+            }
+
+        })
     };
     this.getStates = function(countryCode){
         return $http.get('http://services.groupkt.com/state/get/'+countryCode+'/all');
