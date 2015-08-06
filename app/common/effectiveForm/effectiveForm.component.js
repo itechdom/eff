@@ -6,7 +6,6 @@ let effectiveFormComponent = function ($compile,$http) {
         template,
         controller,
         link: function (scope, elem, attrs) {
-            console.log(scope);
         },
         replace:true,
         restrict: 'E',
