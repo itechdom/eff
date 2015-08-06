@@ -35,7 +35,7 @@
 			<accordion>
 				<accordion-group close-others="oneAtATime"  ng-repeat="contact in contacts" is-open="status.open">
 					<accordion-heading >
-						{{contact.fname}} {{contact.lname}} <i class="pull-right glyphicon" ng-class="{'fa fa-minus bigicon': status.open, 'fa fa-plus bigicon': !status.open}"></i>
+						{{contact.fname}} {{contact.lname}} <i class="pull-right glyphicon" ng-class="{'fa fa-pencil bigicon': status.open, 'fa fa-pencil-square bigicon': !status.open}"></i>
 					</accordion-heading>
 
 					<effective-form index="$index" on-submit="updateContacts(contact)" contact="contact"></effective-form>
